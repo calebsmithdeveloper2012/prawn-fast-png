@@ -4,6 +4,6 @@ require 'prawn/images/png_patch'
 
 module Prawn
   module FastPng
-    VERSION = '0.2.7'
+    VERSION = '0.2.8'
   end
 end

@@ -28,7 +28,8 @@ module Prawn
 
         # img.background_color = "none"
         img.background_color = "Transparent"
-        
+        img.trim!
+
         # image blob not needed anymore, let GC take care of it
         @prawn_fast_png_data = nil
 
