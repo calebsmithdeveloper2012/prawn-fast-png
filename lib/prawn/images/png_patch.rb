@@ -22,7 +22,9 @@ module Prawn
       def unfilter_image_data
         img = Magick::Image.from_blob(@prawn_fast_png_data).first
 
-        img.alpha Magick::OpaqueAlphaChannel 
+        img.opaque('#CCCCCC00', "#CCCCCC00")
+
+        img.opaque('#FFFFFF', "#CCCCCC00")
         # image blob not needed anymore, let GC take care of it
         @prawn_fast_png_data = nil
 
