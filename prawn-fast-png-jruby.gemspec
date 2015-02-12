@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
     images containing an alpha channel
   END
   s.add_dependency("prawn")
-  s.add_dependency("RMagick4J")
+  s.add_dependency("rmagick4j")
   s.has_rdoc = true
   s.extra_rdoc_files = %w{README.rdoc LICENSE COPYING}
   s.rdoc_options << "--title" << "prawn-fast-png documentation" <<
