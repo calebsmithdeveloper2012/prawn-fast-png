@@ -21,6 +21,8 @@ module Prawn
 
       def unfilter_image_data
         img = Magick::Image.from_blob(@prawn_fast_png_data).first
+
+        img.alpha Magick::OpaqueAlphaChannel 
         # image blob not needed anymore, let GC take care of it
         @prawn_fast_png_data = nil
 
@@ -35,6 +37,10 @@ module Prawn
           # export_pixels_to_str returns little-endian data, but we need big-endian
           # so it's usually more efficient to use export_pixels and pack
           img_data   = img.export_pixels(0, 0, width, height, format).pack('n*')
+
+
+
+
           alpha_data = img.export_pixels(0, 0, width, height, 'A')
           alpha_bits = respond_to?(:alpha_channel_bits) ? alpha_channel_bits : 16
           alpha_channel =
@@ -58,3 +64,4 @@ module Prawn
   end
 end
 
+convert image.png -matte -fill none -fuzz 1% -opaque white  result.png
